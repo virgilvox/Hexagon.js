@@ -54,6 +54,13 @@ HexagonGrid.prototype.drawHexAtColRow = function(column, row, color) {
     this.drawHex(drawx, drawy, color, "");
 };
 
+HexagonGrid.prototype.drawHexAtColRow = function(column, row, color, debugText) {
+    var drawy = column % 2 == 0 ? (row * this.height) + this.canvasOriginY : (row * this.height) + this.canvasOriginY + (this.height / 2);
+    var drawx = (column * this.side) + this.canvasOriginX;
+
+    this.drawHex(drawx, drawy, color, debugText);
+};
+
 HexagonGrid.prototype.drawHex = function(x0, y0, fillColor, debugText) {
     this.context.strokeStyle = "#000";
     this.context.beginPath();
